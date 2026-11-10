@@ -1,0 +1,6 @@
+{
+  "name": "AxiomMath - Master, Formula Vault & Word Problems",
+  "description": "Interactive mathematics game, formula reference vault, diagnostic tests, and textbook word problems for ages 12-25 with progress tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

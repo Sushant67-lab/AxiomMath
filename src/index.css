@@ -1,0 +1,234 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==================================================================== */
+/* 1. SILKY SMOOTH THEME TRANSITION ENGINE                              */
+/* Coordinated transition during theme switching across all properties  */
+/* ==================================================================== */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              fill 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              stroke 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition-delay: 0s !important;
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+  :root.dark {
+    color-scheme: dark;
+  }
+  :root.light {
+    color-scheme: light;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  html.dark body {
+    background-color: #030712;
+    color: #f1f5f9;
+  }
+
+  html.light body {
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  /* ==================================================================== */
+  /* 2. REFINED LIGHT THEME AESTHETICS (Crisp, High-Contrast & Academic)  */
+  /* ==================================================================== */
+  html.light {
+    --canvas-bg: #f8fafc;
+    --surface-bg: #ffffff;
+    --surface-subtle: #f1f5f9;
+    --border-color: #e2e8f0;
+  }
+
+  /* Structural surfaces and cards in Light Mode */
+  html.light .bg-black {
+    background-color: #ffffff !important;
+  }
+  html.light .bg-black\/95,
+  html.light .bg-black\/90,
+  html.light .bg-black\/85,
+  html.light .bg-black\/80 {
+    background-color: rgba(255, 255, 255, 0.96) !important;
+  }
+  html.light .bg-slate-950 {
+    background-color: #ffffff !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 4px 16px -2px rgba(0, 0, 0, 0.03) !important;
+  }
+  html.light .bg-slate-950\/70,
+  html.light .bg-slate-950\/80,
+  html.light .bg-slate-950\/90 {
+    background-color: #ffffff !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.02) !important;
+  }
+  html.light .bg-slate-900 {
+    background-color: #f1f5f9 !important;
+  }
+  html.light .bg-slate-900\/90,
+  html.light .bg-slate-900\/80,
+  html.light .bg-slate-900\/60,
+  html.light .bg-slate-900\/50,
+  html.light .bg-slate-900\/40,
+  html.light .bg-slate-900\/30 {
+    background-color: #f1f5f9 !important;
+  }
+
+  /* Borders */
+  html.light .border-slate-900,
+  html.light .border-slate-800,
+  html.light .border-slate-800\/90,
+  html.light .border-slate-800\/80,
+  html.light .border-slate-800\/60 {
+    border-color: #e2e8f0 !important;
+  }
+  html.light .border-slate-700 {
+    border-color: #cbd5e1 !important;
+  }
+
+  /* Typography: Crisp text hierarchy in Light Mode */
+  html.light .text-white {
+    color: #0f172a !important;
+  }
+  html.light .text-slate-100,
+  html.light .text-slate-200 {
+    color: #0f172a !important;
+  }
+  html.light .text-slate-300 {
+    color: #334155 !important;
+  }
+  html.light .text-slate-400 {
+    color: #64748b !important;
+  }
+  html.light .text-slate-500 {
+    color: #64748b !important;
+  }
+
+  /* Preserve high-contrast text on Primary Emerald & Amber Action Buttons */
+  html.light .bg-emerald-500,
+  html.light button.bg-emerald-500,
+  html.light .bg-emerald-400 {
+    background-color: #10b981 !important;
+    color: #022c22 !important; /* High contrast dark green-black text on bright emerald */
+  }
+  html.light button.bg-emerald-500:hover {
+    background-color: #059669 !important;
+    color: #ffffff !important;
+  }
+  html.light .bg-emerald-500\/10,
+  html.light .bg-emerald-500\/15,
+  html.light .bg-emerald-500\/20 {
+    background-color: rgba(16, 185, 129, 0.12) !important;
+    border-color: rgba(16, 185, 129, 0.35) !important;
+  }
+  html.light .text-emerald-400 {
+    color: #059669 !important; /* WCAG AA accessible emerald on light backgrounds */
+  }
+  html.light .text-emerald-300 {
+    color: #047857 !important;
+  }
+  html.light .text-cyan-400 {
+    color: #0891b2 !important;
+  }
+  html.light .text-amber-300,
+  html.light .text-amber-400 {
+    color: #d97706 !important;
+  }
+
+  /* KaTeX Math formulas in Light Mode */
+  html.light .katex {
+    color: #0f172a !important;
+  }
+  html.light .katex-display {
+    color: #0f172a !important;
+  }
+  html.light .math-formula {
+    color: #0f172a !important;
+  }
+  html.light .katex .mord,
+  html.light .katex .mbin,
+  html.light .katex .mrel,
+  html.light .katex .mopen,
+  html.light .katex .mclose,
+  html.light .katex .mpunct {
+    color: #0f172a !important;
+  }
+
+  /* Formula display box in Formula Vault cards */
+  html.light .bg-slate-950\/90 {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Form inputs in Light Mode */
+  html.light input,
+  html.light select,
+  html.light textarea {
+    background-color: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+  }
+  html.light input::placeholder,
+  html.light textarea::placeholder {
+    color: #94a3b8 !important;
+  }
+  html.light input:focus,
+  html.light select:focus,
+  html.light textarea:focus {
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+  }
+
+  /* Overlays and backdrops in Light Mode */
+  html.light .bg-black\/85,
+  html.light .bg-black\/90 {
+    background-color: rgba(15, 23, 42, 0.45) !important; /* Soft dark scrim for modals */
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  }
+
+  code, pre, .font-mono, .math-formula {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #090d16;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
